@@ -2,6 +2,13 @@
 #include "config.h"
 #endif
 
+#include <pHash.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 #include "php.h"
 #include "php_ini.h"
 #include "ext/standard/info.h"
@@ -72,21 +79,20 @@ PHP_FUNCTION(phasher_image_hash)
 {
 	char *file = NULL;
 	int file_len, len;
-	char *strg;
-
+	char *hash_str;
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &file, &file_len) == FAILURE) {
 		return;
 	}
     
-    /*
     ulong64 * return_res;
 	ulong64 *hash = (ulong64 *)malloc(sizeof(ulong64));
     int ret = ph_dct_imagehash(file, *hash);
-    // somehow return hash as string
-    */
 
-	len = spprintf(&strg, 0, "File %s", file);
-	RETURN_STRINGL(strg, len, 0);
+	len = spprintf(&hash_str, 0, "File %llu", hash);
+	RETURN_STRINGL(hash_str, len, 0);
 }
 
+#ifdef __cplusplus
+}
+#endif

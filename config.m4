@@ -60,5 +60,5 @@ if test "$PHP_PHASHER" != "no"; then
   PHP_SUBST(PHASHER_SHARED_LIBADD)
   AC_DEFINE(HAVE_PHASH, 1, [ ])
   
-  PHP_NEW_EXTENSION(phasher, phasher.c, $ext_shared)
+  PHP_NEW_EXTENSION(phasher, phasher.cc, $ext_shared)
 fi

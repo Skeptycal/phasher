@@ -19,13 +19,7 @@ extern zend_module_entry phasher_module_entry;
 #include "TSRM.h"
 #endif
 
-// #ifdef __cplusplus
-// extern "C" {
-// #endif
-// #include <pHash.h>
-// #ifdef __cplusplus
-// }
-// #endif
+
 
 PHP_MINIT_FUNCTION(phasher);
 PHP_MSHUTDOWN_FUNCTION(phasher);
